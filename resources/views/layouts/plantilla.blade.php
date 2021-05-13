@@ -7,10 +7,27 @@
     <title>@yield('title')</title>
     <!--favicon-->
     <!--estilos-->
+    <style>
+        .active{
+            color: red;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
     <!--header-->
     <!--nav-->
+
+    <header>
+        <h1>Base de datos de robots masters del Dr. Wily</h1>
+        <nav>
+            <ul>
+                <li><a href="{{route('numbers.index')}}" class="{{request()->routeIs('numbers.index') ? 'active' : ''}}">Menu Principal</a></li>
+                <li><a href="{{route('numbers.listar')}}" class="{{request()->routeIs('numbers.listar') ? 'active' : ''}}">Lista de robots</a></li>
+                <li><a href="{{route('numbers.crear')}}" class="{{request()->routeIs('numbers.crear') ? 'active' : ''}}">Crear robot</a></li>
+            </ul>
+        </nav>
+    </header>
     
     @yield('content')
 

@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Robot;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
 class RobotFactory extends Factory
 {
@@ -21,8 +22,10 @@ class RobotFactory extends Factory
      */
     public function definition()
     {
+        $nombre = $this->faker->name();
         return [
-            'nombre' => $this->faker->name(),
+            'nombre' => $nombre,
+            'slug'=> Str::slug($nombre, '-'),
             'descripcion' => $this->faker->paragraph(),
             'tipo' => $this->faker->sentence()
         ];

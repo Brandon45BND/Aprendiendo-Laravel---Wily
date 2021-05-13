@@ -17,7 +17,7 @@
 <ul>
     @foreach ($robots as $number)
     <li>
-        <a href="{{route('numbers.mostrar', $number->id)}}">{{$number->nombre}}</a>
+        <a href="{{route('numbers.mostrar', $number)}}">{{$number->nombre}}</a>
     </li>
     @endforeach
 </ul>

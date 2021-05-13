@@ -12,4 +12,9 @@ class Robot extends Model
     protected $fillable = ['nombre', 'descripcion', 'tipo'];
 
     //protected $guarded = [];//
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
 }
