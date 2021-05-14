@@ -15,8 +15,8 @@ class Wily extends Migration
     {
         Schema::create('robots', function (Blueprint $table) {
             $table->id();
-            $table->string('slug');
-            $table->string('nombre')->unique();
+            $table->string('nombre');
+            /*$table->string('slug');*/
             $table->string('descripcion');
             $table->string('tipo');
             $table->timestamps();

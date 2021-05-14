@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\WilyController;
+use App\Mail\ContactoMailable;
+use Illuminate\Support\Facades\Mail;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,20 +19,18 @@ use App\Http\Controllers\WilyController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('numbers', [WilyController::class, 'index'])->name('numbers.index');
-
-Route::get('numbers/crear', [WilyController::class, 'crear'])->name('numbers.crear');
-
-Route::post('numbers', [WilyController::class, 'mandar'])->name('numbers.mandar');
 
 Route::get('numbers/listar', [WilyController::class, 'listar'])->name('numbers.listar');
 
 Route::get('numbers/borrar', [WilyController::class, 'borrar'])->name('numbers.borrar');
 
-Route::get('numbers/{number}', [WilyController::class, 'mostrar'])->name('numbers.mostrar');
+Route::resource('numbers', WilyController::class);
 
-Route::get('numbers/{number}/editar', [WilyController::class, 'editar'])->name('numbers.editar');
+Route::get('contacto', function () {
+    $correo = new ContactoMailable;
 
-Route::put('numbers/{number}', [WilyController::class, 'actualizar'])->name('numbers.actualizar');
+    Mail::to('neko45slayer@gmail.com')->send($correo);
 
-Route::delete('numbers/{number}', [WilyController::class, 'destruir'])->name('numbers.destruir');
+    return "Mensaje Enviado";
+});
+

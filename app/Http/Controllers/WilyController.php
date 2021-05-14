@@ -12,11 +12,11 @@ class WilyController extends Controller
         return view('numbers.index');
     }
 
-    public function crear(){
+    public function create(){
         return view('numbers.crear');
     }
 
-    public function mandar(ValRobot $request){
+    public function store(ValRobot $request){
 
        /* $number = new Robot();
 
@@ -28,7 +28,7 @@ class WilyController extends Controller
 
         $number = Robot::create($request->all());
 
-        return redirect()->route('numbers.mostrar', $number);
+        return redirect()->route('numbers.show', $number);
     }
 
     public function listar(){
@@ -42,18 +42,18 @@ class WilyController extends Controller
         return view('numbers.borrar');
     }
 
-    public function mostrar(Robot $number){
+    public function show(Robot $number){
 
         return view('numbers.mostrar', compact('number'));
     }
 
-    public function editar(Robot $number)
+    public function edit(Robot $number)
     {
         return view('numbers.editar', compact('number'));
 
     }
 
-    public function actualizar(Request $request, Robot $number){
+    public function update(Request $request, Robot $number){
 
         $request->validate([
             'nombre' => 'required',
@@ -69,10 +69,10 @@ class WilyController extends Controller
 
         $number->update($request->all());
 
-        return redirect()->route('numbers.mostrar', $number);
+        return redirect()->route('numbers.show', $number);
     }
 
-    public function destruir(Robot $number){
+    public function destroy(Robot $number){
 
         $number->delete();
         

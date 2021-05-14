@@ -7,7 +7,7 @@
 <p><strong>Tipo: </strong>{{$number->tipo}}</p>
 <p><strong>Descripcion: </strong>{{$number->descripcion}}</p>
 <br>
-<form action="{{route('numbers.editar', $number)}}">
+<form action="{{route('numbers.edit', $number)}}">
     <button>Editar datos</button>
 </form>
 <br><br>
@@ -17,7 +17,7 @@
 </form>
 <br><br>
 
-<form action="{{route('numbers.destruir', $number)}}" method="POST">
+<form action="{{route('numbers.destroy', $number)}}" method="POST">
     @csrf
 
     @method('delete')

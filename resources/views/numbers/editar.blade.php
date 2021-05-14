@@ -5,7 +5,7 @@
 @section('content')
 <h1><center>Editar datos del Robot Master</center></h1>
 
-<form action="{{route('numbers.actualizar', $number)}}" method="POST">
+<form action="{{route('numbers.update', $number)}}" method="POST">
 
     @csrf
 
@@ -69,5 +69,5 @@
 
 <a href="{{route('numbers.listar')}}">Volver a la lista</a>
 <br><br>
-<a href="{{route('numbers.mostrar', $number->id)}}">Volver a los datos iniciales</a>
+<a href="{{route('numbers.show', $number->id)}}">Volver a los datos iniciales</a>
 @endsection

@@ -10,14 +10,14 @@
 </form>
 <br>
 <br>
-<form action="{{route('numbers.crear')}}">
+<form action="{{route('numbers.create')}}">
     <button>Crear robot</button>
 </form>
 <br>
 <ul>
     @foreach ($robots as $number)
     <li>
-        <a href="{{route('numbers.mostrar', $number)}}">{{$number->nombre}}</a>
+        <a href="{{route('numbers.show', $number)}}">{{$number->nombre}}</a>
     </li>
     @endforeach
 </ul>

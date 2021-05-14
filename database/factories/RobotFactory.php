@@ -22,10 +22,10 @@ class RobotFactory extends Factory
      */
     public function definition()
     {
-        $nombre = $this->faker->name();
+        /*$nombre = $this->faker->name();*/
         return [
-            'nombre' => $nombre,
-            'slug'=> Str::slug($nombre, '-'),
+            'nombre' => $this->faker->name(),
+            /*'slug'=> Str::slug($nombre, '-'),*/
             'descripcion' => $this->faker->paragraph(),
             'tipo' => $this->faker->sentence()
         ];

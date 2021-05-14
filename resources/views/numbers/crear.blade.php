@@ -5,7 +5,7 @@
 @section('content')
 <h1><center>Crea tu propio Robot Master</center></h1>
 
-<form action="{{route('numbers.mandar')}}" method="POST">
+<form action="{{route('numbers.store')}}" method="POST">
 
     @csrf
 
