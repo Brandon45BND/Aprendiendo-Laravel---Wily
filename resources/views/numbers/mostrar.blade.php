@@ -12,7 +12,7 @@
 </form>
 <br><br>
 
-<form action="{{route('numbers.listar')}}">
+<form action="{{route('numbers.index')}}">
     <button>Volver a lista</button>
 </form>
 <br><br>

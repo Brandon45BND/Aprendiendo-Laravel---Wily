@@ -23,7 +23,7 @@
         <nav>
             <ul>
                 <li><a href="{{route('numbers.index')}}" class="{{request()->routeIs('numbers.index') ? 'active' : ''}}">Menu Principal</a></li>
-                <li><a href="{{route('numbers.listar')}}" class="{{request()->routeIs('numbers.listar') ? 'active' : ''}}">Lista de robots</a></li>
+                <li><a href="{{route('numbers.index')}}" class="{{request()->routeIs('numbers.index') ? 'active' : ''}}">Lista de robots</a></li>
                 <li><a href="{{route('numbers.create')}}" class="{{request()->routeIs('numbers.create') ? 'active' : ''}}">Crear robot</a></li>
             </ul>
         </nav>

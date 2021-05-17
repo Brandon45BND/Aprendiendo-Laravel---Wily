@@ -65,5 +65,5 @@
     <br><br>
 </form>
 
-<a href="{{route('numbers.listar')}}">Volver a la lista</a>
+<a href="{{route('numbers.index')}}">Volver a la lista</a>
 @endsection

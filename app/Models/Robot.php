@@ -17,4 +17,8 @@ class Robot extends Model
     {
         return 'slug';
     */
+
+    public function juego(){
+        return $this->belongsTo('App\Models\Juego');
+    }
 }

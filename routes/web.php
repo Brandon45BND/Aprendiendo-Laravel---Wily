@@ -20,10 +20,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('numbers/listar', [WilyController::class, 'listar'])->name('numbers.listar');
-
-Route::get('numbers/borrar', [WilyController::class, 'borrar'])->name('numbers.borrar');
-
 Route::resource('numbers', WilyController::class);
 
 Route::get('contacto', function () {

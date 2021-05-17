@@ -9,7 +9,10 @@ use App\Http\Requests\ValRobot;
 class WilyController extends Controller
 {
     public function index(){
-        return view('numbers.index');
+
+        $robots = Robot::orderBy('id', 'desc')->paginate();
+
+        return view('numbers.index', compact('robots'));
     }
 
     public function create(){
@@ -29,17 +32,6 @@ class WilyController extends Controller
         $number = Robot::create($request->all());
 
         return redirect()->route('numbers.show', $number);
-    }
-
-    public function listar(){
-
-        $robots = Robot::orderBy('id', 'desc')->paginate();
-
-        return view('numbers.listar', compact('robots'));
-    }
-
-    public function borrar(){
-        return view('numbers.borrar');
     }
 
     public function show(Robot $number){
@@ -76,6 +68,6 @@ class WilyController extends Controller
 
         $number->delete();
         
-        return redirect()->route('numbers.borrar', $number);
+        return view('numbers.borrar', compact('number'));
     }
 }

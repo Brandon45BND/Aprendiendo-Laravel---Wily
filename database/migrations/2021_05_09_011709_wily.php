@@ -19,6 +19,10 @@ class Wily extends Migration
             /*$table->string('slug');*/
             $table->string('descripcion');
             $table->string('tipo');
+
+            $table->unsignedBigInteger('juego_id')->unique();
+            $table->foreign('juego_id')->references('id')->on('juegos')->onDelete('cascade')->onUpdate('cascade');
+
             $table->timestamps();
         });
     }
