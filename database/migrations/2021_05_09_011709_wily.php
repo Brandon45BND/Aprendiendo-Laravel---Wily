@@ -16,11 +16,11 @@ class Wily extends Migration
         Schema::create('robots', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            /*$table->string('slug');*/
+            $table->string('slug');
             $table->string('descripcion');
             $table->string('tipo');
 
-            $table->unsignedBigInteger('juego_id')->unique();
+            $table->unsignedBigInteger('juego_id');
             $table->foreign('juego_id')->references('id')->on('juegos')->onDelete('cascade')->onUpdate('cascade');
 
             $table->timestamps();

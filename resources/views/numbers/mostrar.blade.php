@@ -5,6 +5,7 @@
 @section('content')
 <h1>Robot Master {{$number->nombre}}</h1>
 <p><strong>Tipo: </strong>{{$number->tipo}}</p>
+<p><strong>Juego al que pertenece: </strong>{{$number->juego->nombre}}</p>
 <p><strong>Descripcion: </strong>{{$number->descripcion}}</p>
 <br>
 <form action="{{route('numbers.edit', $number)}}">

@@ -56,11 +56,24 @@
         </select>
     </label>
 
-    @error('tipo')
-    <br>
-    <small>{{$message}}</small>
-    <br>
-@enderror
+    <br><br>
+    <label>
+        Juego:
+        <br>
+        <select name="juego_id">
+            <option value="1">Megaman 1</option>
+            <option value="2">Megaman 2</option>
+            <option value="3">Megaman 3</option>
+            <option value="4">Megaman 4</option>
+            <option value="5">Megaman 5</option>
+            <option value="6">Megaman 6</option>
+            <option value="7">Megaman 7</option>
+            <option value="8">Megaman 8</option>
+            <option value="9">Megaman 9</option>
+            <option value="10">Megaman 10</option>
+            <option value="11">Megaman 11</option>
+        </select>
+    </label>
 
     <br><br>
     <button type="submit">Guardar cambios</button>

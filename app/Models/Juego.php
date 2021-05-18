@@ -9,7 +9,7 @@ class Juego extends Model
 {
     use HasFactory;
 
-    public function robot(){
+    public function robots(){
         return $this->hasMany('App\Models\Robot');
     }
 }

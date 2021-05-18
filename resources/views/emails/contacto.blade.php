@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Correo Electronico</h1>
-    <p>Correo del Dr. Wily</p>
+    <h1>Correo del Dr. Wily</h1>
+    <p>Has creado a un nuevo robot</p>
 </body>
 </html>

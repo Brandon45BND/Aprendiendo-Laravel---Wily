@@ -9,14 +9,14 @@ class Robot extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nombre', 'descripcion', 'tipo'];
+    /*protected $fillable = ['nombre', 'descripcion', 'tipo', 'juego_id'];*/
 
     /*protected $guarded = [];*/
 
-    /*public function getRouteKeyName()
+    public function getRouteKeyName()
     {
         return 'slug';
-    */
+    }
 
     public function juego(){
         return $this->belongsTo('App\Models\Juego');

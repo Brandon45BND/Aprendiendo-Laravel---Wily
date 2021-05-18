@@ -19,7 +19,7 @@
     <!--nav-->
 
     <header>
-        <h1>Base de datos de robots masters del Dr. Wily</h1>
+        <h1>Base de datos de los juegos de Megaman</h1>
         <nav>
             <ul>
                 <!--<li><a href="" class="">Menu Principal</a></li>-->

@@ -5,8 +5,8 @@
 @section('content')
 <h1><center>Lista de los Robot Masters registrados</center></h1>
 <br>
-<form action="{{route('numbers.index')}}">
-    <button>Volver al menu principal</button>
+<form action="{{route('games.index')}}">
+    <button>Ir a la lista de juegos</button>
 </form>
 <br>
 <br>
