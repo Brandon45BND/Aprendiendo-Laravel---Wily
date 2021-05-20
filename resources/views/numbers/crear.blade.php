@@ -80,4 +80,6 @@
 </form>
 
 <a href="{{route('numbers.index')}}">Volver a la lista</a>
+
+
 @endsection

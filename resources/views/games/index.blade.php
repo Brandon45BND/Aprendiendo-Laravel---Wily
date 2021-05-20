@@ -1,4 +1,4 @@
-@extends('layouts.base')
+@extends('layouts.plantilla')
 
 @section('title', 'lista de juegos')
 
@@ -17,5 +17,9 @@
 </ul>
 
 {{$juegos->links()}}
+
+@auth
+{{ auth()->user()->name }}
+@endauth
 
 @endsection

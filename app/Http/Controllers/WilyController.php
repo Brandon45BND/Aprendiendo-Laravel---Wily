@@ -11,6 +11,11 @@ use App\Events\UserHasContacted;
 
 class WilyController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->except('index', 'show');
+    }
+
     public function index()
     {
         $robots = Robot::orderBy('id', 'desc')->paginate();
@@ -20,7 +25,7 @@ class WilyController extends Controller
 
     public function create()
     {
-        return view('');
+        return view('numbers.crear');
     }
 
     public function store(ValRobot $request)

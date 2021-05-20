@@ -6,6 +6,8 @@ use App\Http\Controllers\WilyController;
 use App\Http\Controllers\GameController;
 use App\Mail\ContactoMailable;
 use Illuminate\Support\Facades\Mail;
+use App\Http\Controllers\TestinController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,11 +23,19 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';
+
 Route::resource('numbers', WilyController::class);
 
 Route::get('games', [GameController::class, 'index'])->name('games.index');
 
 Route::get('games/{game}', [GameController::class, 'show'])->name('games.show');
+
+Route::get('testing', [TestinController::class, 'index'])->name('testing.index');
 
 Route::get('contacto', function () {
     $correo = new ContactoMailable;
@@ -34,4 +44,3 @@ Route::get('contacto', function () {
 
     return "Notificacion Enviada";
 });
-

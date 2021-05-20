@@ -82,5 +82,5 @@
 
 <a href="{{route('numbers.index')}}">Volver a la lista</a>
 <br><br>
-<a href="{{route('numbers.show', $number->id)}}">Volver a los datos iniciales</a>
+<a href="{{route('numbers.show', $number)}}">Volver a los datos iniciales</a>
 @endsection

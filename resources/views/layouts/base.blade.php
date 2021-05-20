@@ -26,8 +26,18 @@
                 <li><a href="{{route('numbers.index')}}" class="{{request()->routeIs('numbers.index') ? 'active' : ''}}">Lista de robots</a></li>
                 <li><a href="{{route('numbers.create')}}" class="{{request()->routeIs('numbers.create') ? 'active' : ''}}">Crear robot</a></li>
                 <li><a href="{{route('games.index')}}" class="{{request()->routeIs('games.index') ? 'active' : ''}}">Lista de juegos</a></li>
+                @guest
+                <li><a href="{{route('login')}}">Iniciar Sesion</a></li>
+                <li><a href="{{route('register')}}">Registrate</a></li>
+                @else
+                <li><a href="#" onclick="event.preventDefault();
+                    document.getElementById('logout-form').submit();">Cerrar Sesion</a></li>
+                @endguest
             </ul>
         </nav>
+        <form id="logout-form" method="POST" action="{{ route('logout') }}">
+            @csrf
+        </form>
     </header>
     
     @yield('content')

@@ -1,4 +1,4 @@
-@extends('layouts.base')
+@extends('layouts.plantilla')
 
 @section('title', '' . $game->nombre)
 
