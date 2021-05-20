@@ -17,7 +17,7 @@ class GameController extends Controller
 
     public function show(Juego $game)
     {
-        $robots = Robot::where('juego_id', '')->orderBy('id', 'desc')->paginate();
+        $robots = Robot::where('juego_id', $game->id)->orderBy('id', 'desc')->paginate();
 
         return view('games.show', compact('game', 'robots'));
     }

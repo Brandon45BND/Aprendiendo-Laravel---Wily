@@ -20,7 +20,7 @@ class WilyController extends Controller
 
     public function create()
     {
-        return view('numbers.crear');
+        return view('');
     }
 
     public function store(ValRobot $request)
