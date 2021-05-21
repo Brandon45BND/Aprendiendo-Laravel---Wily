@@ -9,37 +9,40 @@
 
     @csrf
 
-    <label>
+    <div class="global-container">
+        <div class="card login-form">
+          <div class="card-body">
+            <div class="card-text">
+<div class="form-group">
+    <label for="exampleFormControlInput1" class="form-label">
         Nombre del Robot Master:
         <br>
-        <input type="text" name="nombre" value="{{old('nombre')}}">
+        <input type="text" name="nombre" value="{{old('nombre')}}" class="form-control" id="exampleFormControlInput1">
     </label>
+</div>
 
     @error('nombre')
-        <br>
         <small>{{$message}}</small>
-        <br>
     @enderror
 
-    <br><br>
-    <label>
-        Descripcion del Robot Master:
-        <br>
-        <textarea name="descripcion" rows="5">{{old('descripcion')}}</textarea>
-    </label>
-    
-    @error('descripcion')
     <br>
+<div class="form-group">
+    <label for="exampleFormControlInput1" class="form-label">
+        Descripcion del Robot Master:
+        <textarea name="descripcion" rows="5" class="form-control" id="exampleFormControlTextarea1">{{old('descripcion')}}</textarea>
+    </label>
+</div>
+    @error('descripcion')
     <small>{{$message}}</small>
     <br>
 @enderror
 
-    <br><br>
+    
     <label>
         Tipo:
         <br>
-        <select name="tipo">
-            <option value="Fuego">Fuego</option>
+        <select name="tipo" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+            <option selected value="Fuego">Fuego</option>
             <option value="Hielo">Hielo</option>
             <option value="Electrico">Electrico</option>
             <option value="Viento">Viento</option>
@@ -54,12 +57,11 @@
         </select>
     </label>
 
-    <br><br>
     <label>
         Juego:
         <br>
-        <select name="juego_id">
-            <option value="1">Megaman 1</option>
+        <select name="juego_id" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+            <option selected value="1">Megaman 1</option>
             <option value="2">Megaman 2</option>
             <option value="3">Megaman 3</option>
             <option value="4">Megaman 4</option>
@@ -74,12 +76,18 @@
     </label>
 
 
-    <br><br>
-    <button type="submit">Crear</button>
-    <br><br>
+    <br>
+    <button type="submit" class="btn btn-outline-primary">Crear</button>
+</div>
+</div>
+</div>
+</div>
 </form>
 
-<a href="{{route('numbers.index')}}">Volver a la lista</a>
+<center><form action="{{route('numbers.index')}}">
+    <button type="link" class="btn btn-outline-primary">Volver a la lista</button>
+</form></center>
+<br>
 
 
 @endsection

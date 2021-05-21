@@ -11,10 +11,10 @@ use App\Events\UserHasContacted;
 
 class WilyController extends Controller
 {
-    public function __construct()
+    /*public function __construct()
     {
         $this->middleware('auth')->except('index', 'show');
-    }
+    }*/
 
     public function index()
     {

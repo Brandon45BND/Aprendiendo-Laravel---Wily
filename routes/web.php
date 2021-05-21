@@ -29,13 +29,30 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
-Route::resource('numbers', WilyController::class);
+
+
+
+Route::middleware('auth')->group(function () {
+
+    Route::get('numbers/create', [WilyController::class, 'create'])->name('numbers.create');
+
+    Route::post('numbers', [WilyController::class, 'store'])->name('numbers.store');
+
+    Route::get('numbers/{number}/edit', [WilyController::class, 'edit'])->name('numbers.edit');
+
+    Route::put('numbers/{number}', [WilyController::class, 'update'])->name('numbers.update');
+
+    Route::delete('numbers/{number}', [WilyController::class, 'destroy'])->name('numbers.destroy');
+
+});
+
+Route::get('numbers', [WilyController::class, 'index'])->name('numbers.index');
+
+Route::get('numbers/{number}', [WilyController::class, 'show'])->name('numbers.show');
 
 Route::get('games', [GameController::class, 'index'])->name('games.index');
 
 Route::get('games/{game}', [GameController::class, 'show'])->name('games.show');
-
-Route::get('testing', [TestinController::class, 'index'])->name('testing.index');
 
 Route::get('contacto', function () {
     $correo = new ContactoMailable;

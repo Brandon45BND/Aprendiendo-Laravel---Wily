@@ -9,7 +9,7 @@ body{
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	color: #f56e00;
+	color: #00e5f5;
 	
 }
 
@@ -22,9 +22,9 @@ form{
 
 .login-form{
 	width: 380px;
-	height: 450px;
-	margin: 100px;
-	background: #a8d441 !important;
+	height: 475px;
+	margin: 10px;
+	background: #5484cc !important;
 	border-radius: 10px !important;
     position: relative;
 }
@@ -52,8 +52,8 @@ input[type="password"]:focus{
 	padding-top: 20px;
 }
 
-.btn{
-	background: #f8b31f !important;
+.btn-outline-primary{
+	background: #FEFFFF;
 	font-size: 14px;
 	transform: translateY(10px);
 	border-radius: 10px !important;
