@@ -15,6 +15,13 @@ class RobotSeeder extends Seeder
      */
     public function run()
     {
+        /**
+         * Tu factory está mal, la tabla de robots tiene una columna que jamás llenas
+         * "robot_id" revisa la documentación sobre factories denuevo:
+         *
+         * https://laravel.com/docs/8.x/database-testing#belongs-to-relationships
+         */
+
         Robot::factory(1)->create();
 
         /*$game = new Juego();
