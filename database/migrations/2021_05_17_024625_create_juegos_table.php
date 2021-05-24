@@ -15,6 +15,11 @@ class CreateJuegosTable extends Migration
     {
         Schema::create('juegos', function (Blueprint $table) {
             $table->id();
+
+            /**
+             * Por qué esta columna está limitada a 15 caracteres?
+             * Cual es el propósito?
+             */
             $table->string('nombre', 15);
 
             $table->timestamps();

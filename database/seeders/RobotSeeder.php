@@ -16,8 +16,9 @@ class RobotSeeder extends Seeder
     public function run()
     {
         /**
-         * Tu factory está mal, la tabla de robots tiene una columna que jamás llenas
-         * "robot_id" revisa la documentación sobre factories denuevo:
+         * Tu factory de Robot está mal, la tabla de robots tiene una columna que jamás
+         * llenas "robot_id" revisa la documentación sobre factories denuevo y factories
+         * con relationships denuevo.
          *
          * https://laravel.com/docs/8.x/database-testing#belongs-to-relationships
          */
