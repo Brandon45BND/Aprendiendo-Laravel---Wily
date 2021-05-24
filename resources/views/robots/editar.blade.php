@@ -1,11 +1,11 @@
 @extends('layouts.plantilla')
 
-@section('title', 'numbers editar')
+@section('title', 'robots editar')
 
 @section('content')
 <h1><center>Editar datos del Robot Master</center></h1>
 
-<form action="{{route('numbers.update', $number)}}" method="POST">
+<form action="{{route('robots.update', $robot)}}" method="POST">
 
     @csrf
 
@@ -19,7 +19,7 @@
     <label for="exampleFormControlInput1" class="form-label">
         Nombre del Robot Master:
         <br>
-        <input type="text" name="nombre" value="{{old('nombre', $number->nombre)}}">
+        <input type="text" name="nombre" value="{{old('nombre', $robot->nombre)}}">
     </label>
 </div>
 
@@ -31,7 +31,7 @@
     <div class="form-group">
     <label for="exampleFormControlInput1" class="form-label">
         Descripcion del Robot Master:
-        <textarea name="descripcion" rows="5">{{old('descripcion', $number->descripcion)}}</textarea>
+        <textarea name="descripcion" rows="5">{{old('descripcion', $robot->descripcion)}}</textarea>
     </label>
     </div>
 
@@ -85,10 +85,10 @@
 </div>
 </form>
 
-<center><form action="{{route('numbers.index')}}">
+<center><form action="{{route('robots.index')}}">
     <button type="link" class="btn btn-outline-primary">Volver a la lista</button>
 </form></center>
-<center><form action="{{route('numbers.show', $number)}}">
+<center><form action="{{route('robots.show', $robot)}}">
     <button type="link" class="btn btn-outline-primary">Volver a los datos iniciales</button>
 </form></center>
 <br>

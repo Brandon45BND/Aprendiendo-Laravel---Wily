@@ -1,9 +1,9 @@
 @extends('layouts.plantilla')
 
-@section('title', '' . $number->nombre)
+@section('title', '' . $robot->nombre)
 
 @section('content')
-<h1>Robot Master {{$number->nombre}}</h1>
+<h1>Robot Master {{$robot->nombre}}</h1>
 <br>
 <div class="card mb-3" style="max-width: 540px;">
     <div class="row g-0">
@@ -12,25 +12,25 @@
           </div>
           <div class="col-md-8">
               <div class="card-body">
-                  <h5 class="card-title">{{$number->nombre}}</h5>
-                  <b><p class="card-text">Tipo:</b> {{$number->tipo}}</p>
-                  <b><p class="card-text">Juego al que pertenece: </b> {{$number->juego->nombre}}</p>
-                  <p class="card-text">Descripcion: {{$number->descripcion}}</p>
+                  <h5 class="card-title">{{$robot->nombre}}</h5>
+                  <b><p class="card-text">Tipo:</b> {{$robot->tipo}}</p>
+                  <b><p class="card-text">Juego al que pertenece: </b> {{$robot->juego->nombre}}</p>
+                  <p class="card-text">Descripcion: {{$robot->descripcion}}</p>
                 </div>
           </div>
         </div>
     </div>
-<form action="{{route('numbers.edit', $number)}}">
+<form action="{{route('robots.edit', $robot)}}">
     <button type="link" class="btn btn-outline-primary">Editar datos</button>
 </form>
 
 
-<form action="{{route('numbers.index')}}">
+<form action="{{route('robots.index')}}">
     <button type="link" class="btn btn-outline-primary">Volver a lista</button>
 </form>
 
 
-<form action="{{route('numbers.destroy', $number)}}" method="POST">
+<form action="{{route('robots.destroy', $robot)}}" method="POST">
     @csrf
 
     @method('delete')

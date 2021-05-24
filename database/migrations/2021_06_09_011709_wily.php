@@ -17,7 +17,7 @@ class Wily extends Migration
             $table->id();
             $table->string('nombre');
             $table->string('slug');
-            $table->string('descripcion');
+            $table->string('descripcion', 175);
             $table->string('tipo');
 
             $table->unsignedBigInteger('juego_id');

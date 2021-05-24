@@ -2,11 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\WilyController;
-use App\Http\Controllers\GameController;
 use App\Mail\ContactoMailable;
 use Illuminate\Support\Facades\Mail;
 use App\Http\Controllers\TestinController;
+use App\Http\Controllers\RobotController;
+use App\Http\Controllers\JuegoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,25 +34,25 @@ require __DIR__.'/auth.php';
 
 Route::middleware('auth')->group(function () {
 
-    Route::get('numbers/create', [WilyController::class, 'create'])->name('numbers.create');
+    Route::get('robots/create', [RobotController::class, 'create'])->name('robots.create');
 
-    Route::post('numbers', [WilyController::class, 'store'])->name('numbers.store');
+    Route::post('robots', [RobotController::class, 'store'])->name('robots.store');
 
-    Route::get('numbers/{number}/edit', [WilyController::class, 'edit'])->name('numbers.edit');
+    Route::get('robots/{robot}/edit', [RobotController::class, 'edit'])->name('robots.edit');
 
-    Route::put('numbers/{number}', [WilyController::class, 'update'])->name('numbers.update');
+    Route::put('robots/{robot}', [RobotController::class, 'update'])->name('robots.update');
 
-    Route::delete('numbers/{number}', [WilyController::class, 'destroy'])->name('numbers.destroy');
+    Route::delete('robots/{robot}', [RobotController::class, 'destroy'])->name('robots.destroy');
 
 });
 
-Route::get('numbers', [WilyController::class, 'index'])->name('numbers.index');
+Route::get('robots', [RobotController::class, 'index'])->name('robots.index');
 
-Route::get('numbers/{number}', [WilyController::class, 'show'])->name('numbers.show');
+Route::get('robots/{robot}', [RobotController::class, 'show'])->name('robots.show');
 
-Route::get('games', [GameController::class, 'index'])->name('games.index');
+Route::get('juegos', [JuegoController::class, 'index'])->name('juegos.index');
 
-Route::get('games/{game}', [GameController::class, 'show'])->name('games.show');
+Route::get('juegos/{juego}', [JuegoController::class, 'show'])->name('juegos.show');
 
 Route::get('contacto', function () {
     $correo = new ContactoMailable;

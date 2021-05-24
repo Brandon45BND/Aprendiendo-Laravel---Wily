@@ -1,11 +1,11 @@
 @extends('layouts.plantilla')
 
-@section('title', 'numbers crear')
+@section('title', 'robots crear')
 
 @section('content')
 <h1><center>Crea tu propio Robot Master</center></h1>
 
-<form action="{{route('numbers.store')}}" method="POST">
+<form action="{{route('robots.store')}}" method="POST">
 
     @csrf
 
@@ -84,7 +84,7 @@
 </div>
 </form>
 
-<center><form action="{{route('numbers.index')}}">
+<center><form action="{{route('robots.index')}}">
     <button type="link" class="btn btn-outline-primary">Volver a la lista</button>
 </form></center>
 <br>

@@ -27,13 +27,13 @@
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('numbers.index')}}">Lista de robots</a>
+                        <a class="nav-link" href="{{route('robots.index')}}">Lista de robots</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('numbers.create')}}">Crear robot</a>
+                        <a class="nav-link" href="{{route('robots.create')}}">Crear robot</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('games.index')}}">Lista de juegos</a>
+                        <a class="nav-link" href="{{route('juegos.index')}}">Lista de juegos</a>
                     </li>
                     @guest
                     <li class="nav-item"><a class="nav-link" href="{{route('login')}}">Iniciar Sesion</a></li>
