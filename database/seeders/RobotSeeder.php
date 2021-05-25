@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Juego;
 use Illuminate\Database\Seeder;
 use App\Models\Robot;
+use Carbon\Factory;
 
 class RobotSeeder extends Seeder
 {
@@ -15,8 +16,19 @@ class RobotSeeder extends Seeder
      */
     public function run()
     {
-        Robot::factory(1)->create();
+        $game = Juego::factory(12)->create();
 
+        Robot::factory()
+        ->count(1)
+        ->for(Juego::factory()
+        ->state(
+            ['nombre' => 'Metal Man'],
+            ['slug' => 'metal-man'],
+            ['descripcion' => 'Un robot master de metal'],
+            ['tipo' => 'Acero'],
+            ['juego_id' => '2'],
+        ), "juego")
+        ->create();
         /*$game = new Juego();
 
         $game->nombre = "Megaman 1";

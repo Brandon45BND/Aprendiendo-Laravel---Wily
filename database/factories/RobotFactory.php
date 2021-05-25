@@ -5,6 +5,7 @@ namespace Database\Factories;
 use App\Models\Robot;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
+use App\Models\Juego;
 
 class RobotFactory extends Factory
 {
@@ -28,6 +29,7 @@ class RobotFactory extends Factory
             'slug'=> Str::slug($nombre, '-'),
             'descripcion' => $this->faker->paragraph(),
             'tipo' => $this->faker->sentence(),
+            'juego_id' => Juego::factory()
         ];
     }
 }

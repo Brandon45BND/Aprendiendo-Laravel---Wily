@@ -13,21 +13,22 @@ use App\Events\UserHasContacted;
 
 class RobotTest extends TestCase
 {
+
+    use RefreshDatabase;
+
     /** @test */
     public function a_post_can_be_created(){
 
-        $this->withoutExceptionHandling();
-
-        $robot = Robot::factory(1)->create();
-        $this->actingAs($robot);
-
-        $this->post(route('numbers.store'), ['body' => 'primer robot']);
-
-        $this->assertDatabaseHas('robots', [
-            'body' => 'primer robot'
+        $robot = Robot::factory()->create([
+            'id' => 1,
         ]);
 
-        
+        /* Problema reciente que resolver: Intentar averiguar cual es el error de la linea 27 y solucionarlo */
+        $respuesta = $this->post('robots.store');
+
+        $respuesta->assertJsonFragment([
+            'id' => 1,
+        ]);
 
     }
 }

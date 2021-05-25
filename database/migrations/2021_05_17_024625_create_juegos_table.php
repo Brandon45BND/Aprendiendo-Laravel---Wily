@@ -15,7 +15,7 @@ class CreateJuegosTable extends Migration
     {
         Schema::create('juegos', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre', 15);
+            $table->string('nombre');
 
             $table->timestamps();
         });
