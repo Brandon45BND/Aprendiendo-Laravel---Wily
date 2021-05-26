@@ -20,14 +20,14 @@ class RobotSeeder extends Seeder
 
         Robot::factory()
         ->count(1)
-        ->for(Juego::factory()
+        ->for(Juego::factory(), "juego")   
         ->state(
             ['nombre' => 'Metal Man'],
             ['slug' => 'metal-man'],
             ['descripcion' => 'Un robot master de metal'],
             ['tipo' => 'Acero'],
             ['juego_id' => '2'],
-        ), "juego")
+        )
         ->create();
         /*$game = new Juego();
 
