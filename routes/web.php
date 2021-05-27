@@ -34,8 +34,9 @@ require __DIR__.'/auth.php';
 
 Route::middleware('auth')->group(function () {
 
-    Route::get('robots/create', [RobotController::class, 'create'])->name('robots.create');
 
+    Route::get('robots/create', [RobotController::class, 'create'])->name('robots.create');
+    
     Route::post('robots', [RobotController::class, 'store'])->name('robots.store');
 
     Route::get('robots/{robot}/edit', [RobotController::class, 'edit'])->name('robots.edit');

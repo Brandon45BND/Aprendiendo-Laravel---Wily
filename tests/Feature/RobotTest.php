@@ -10,25 +10,85 @@ use App\Models\Robot;
 use App\Http\Requests\ValRobot;
 use Illuminate\Support\Str;
 use App\Events\UserHasContacted;
+use App\Models\User;
+use App\Models\Juego;
 
 class RobotTest extends TestCase
 {
 
     use RefreshDatabase;
 
-    /** @test */
-    public function a_post_can_be_created(){
+    public function test_crear_un_robot()
+    {
+        $user = User::factory()->create();
+        //1- Visitar mi pagina de crear un robot
+        $response = $this->actingAs($user)->get(route('robots.create'));
+        
+        //2- Verificar que la pagina se cargo totalmente
+        $response->assertStatus(200);
+    }
 
-        $robot = Robot::factory()->create([
-            'id' => 1,
+    public function test_guardar_un_robot()
+    {
+
+        $user = User::factory()->create();
+
+        //3- Verificar que podemos guardar un robot
+
+        $juego = Juego::factory()->create();
+        
+        $robot = $this->actingAs($user)->post(route('robots.store'), [
+            'nombre' => 'Metal Man',
+            'descripcion' => 'Es un robot master que lanza cierras',
+            'tipo' => 'Acero',
+            'juego_id' => $juego->id
         ]);
 
-        /* Problema reciente que resolver: Intentar averiguar cual es el error de la linea 27 y solucionarlo */
-        $respuesta = $this->post('robots.store');
-
-        $respuesta->assertJsonFragment([
-            'id' => 1,
+        //4- Verificar que el robot existe en la base de datos
+        $this->assertDatabaseHas('robots', [
+            'nombre' => 'Metal Man',
+            'descripcion' => 'Es un robot master que lanza cierras',
+            'tipo' => 'Acero',
+            'juego_id' => $juego->id
         ]);
 
+        $response = $this->actingAs($user)->get(route('robots.show', 'metal-man'));
+
+        $response->assertStatus(200);
+        
+    }
+
+    public function test_paginacion_de_robots_en_index()
+    {
+        //1- Crear con los factorys datos falsos para la tabla de robots y de juegos para la relacion
+
+        $juegos = Juego::factory()->count(11)->create();
+
+        $robots = Robot::factory()->count(11)->create();
+
+        //2- Verificar que la lista de consulta de robots cargue primero
+
+        $lista = Robot::orderBy('id', 'desc')->paginate();
+
+        //3- Verificar que la pagina de index cargue totalmente
+
+        $response = $this->get(route('robots.index', compact('robots')));
+
+        $response->assertStatus(200);
+
+    }
+
+    public function test_mostrar_un_robot()
+    {
+        //1- Crear un robot para que podamos consultar sus datos
+        
+        $robot = Robot::factory()->create();
+
+        //2- Aceeder a la ruta de la consulta de este robot y que cargue totalmente
+        $response = $this->get(route('robots.show', compact('robot')));
+
+        $response->assertStatus(200);
+
+        //3- Verificar que los datos del robot carguen en la consulta
     }
 }

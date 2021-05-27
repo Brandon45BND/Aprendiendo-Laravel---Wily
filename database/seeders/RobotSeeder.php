@@ -16,9 +16,12 @@ class RobotSeeder extends Seeder
      */
     public function run()
     {
-        $game = Juego::factory(12)->create();
+        $game = Juego::factory()
+            ->count(11)
+            ->has(Robot::factory(), "robots")
+            ->create();
 
-        Robot::factory()
+        /*Robot::factory()
         ->count(1)
         ->for(Juego::factory(), "juego")   
         ->state(
@@ -29,7 +32,7 @@ class RobotSeeder extends Seeder
             ['juego_id' => '2'],
         )
         ->create();
-        /*$game = new Juego();
+        $game = new Juego();
 
         $game->nombre = "Megaman 1";
 
