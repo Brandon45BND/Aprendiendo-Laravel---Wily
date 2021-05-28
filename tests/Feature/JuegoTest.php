@@ -33,8 +33,34 @@ class JuegoTest extends TestCase
 
         $response->assertStatus(200);
 
-        $response->assertSeeInOrder(['lista']);
+        // Transformar tu colección de Robots:
 
+        // Collection
+        //      Robot 1
+        //      Robot 2
+
+        // Array
+        //      "Juanito"
+        //      "Pepe"
+
+        $resultados = $lista->map(function ($robot) {
+           return $robot->nombre;
+        });
+
+        // Collection
+        //      "Juanito"
+        //      "Pepe"
+
+        $resultados = $resultados->toArray();
+
+        //dd($resultados->toArray(), $response->getContent());
+
+        // Después de llamar al toArray
+        // Array
+        //      "Juanito"
+        //      "Pepe"
+
+        $response->assertSee($resultados);
     }
 
     public function test_mostrar_un_juego()
@@ -47,6 +73,9 @@ class JuegoTest extends TestCase
         $response = $this->get(route('juegos.show', $juego->id));
 
         $response->assertStatus(200);
+
+
+        dd($juego->nombre, $response->getContent());
 
         //3- Verificar que los datos del robot carguen en la consulta
 
