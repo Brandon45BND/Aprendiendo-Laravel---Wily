@@ -64,14 +64,32 @@ class RobotTest extends TestCase
 
         $lista = Robot::select('nombre')->orderBy('id', 'desc')->get();
 
+        /**
+         * Colección
+         *      Robot 1
+         *      Robot 2
+         *      Robot 3
+         *      ...
+         */
+
         //3- Verificar que la pagina de index cargue totalmente
 
         $response = $this->get(route('robots.index'));
 
         $response->assertStatus(200);
 
-        $response->assertSeeInOrder(['lista']);
+        /**
+         * Array
+         *      Nombre del robot 1
+         *      Nombre del robot 2
+         *      Nombre del robot 3
+         */
+        $response->assertSeeInOrder(['lista']); // Ve a mi pagina web y confirma que ves el texto "lista"
 
+        /**
+         * Array
+         *      'lista'
+         */
     }
 
     public function test_mostrar_un_robot()
@@ -87,6 +105,8 @@ class RobotTest extends TestCase
 
         //3- Verificar que los datos del robot carguen en la consulta
 
+        // assertSee espera recibir un array o un string, aquí está recibiendo 4 parametros
+        // cuando assertSee solo recibe 2 $values y $escape
         $response->assertSee($robot->nombre, $robot->descripcion, $robot->tipo, $robot->juego->nombre);
 
     }
@@ -98,7 +118,9 @@ class RobotTest extends TestCase
         $robot = Robot::factory()->create();
 
         //2- Aceeder a la ruta de la consulta y editar de este robot y que cargue totalmente
-        $response = $this->get(route('robots.edit'));
+        $response = $this->get(route('robots.edit', $robot->slug));
+
+        // dd($response, $response->getContent());
 
         $response->assertStatus(200);
     }
