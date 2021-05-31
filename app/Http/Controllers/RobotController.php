@@ -8,6 +8,7 @@ use App\Http\Requests\ValRobot;
 use Illuminate\Support\Str;
 use App\Events\CreateRobot;
 use App\Events\UserHasContacted;
+use Illuminate\Support\Facades\Storage;
 
 class RobotController extends Controller
 {
@@ -32,15 +33,25 @@ class RobotController extends Controller
     {
         $robot = new Robot();
 
-        $robot->nombre = $request->nombre;
-        $robot->descripcion = $request->descripcion;
-        $robot->tipo = $request->tipo;
+        $dato1 = $robot->nombre = $request->nombre;
+        $dato2 = $robot->descripcion = $request->descripcion;
+        $dato3 = $robot->tipo = $request->tipo;
 
-        $robot->slug = Str::slug($request->nombre, '-');
+        $dato4 = $robot->slug = Str::slug($request->nombre, '-');
+        $dato5 = $robot->imagen = $request->file('imagen')->store('public/imagenes');
 
-        $robot->juego_id = $request->juego_id;
+        $dato6 = $robot->juego_id = $request->juego_id;
 
-        $robot->save();
+        $url = Storage::url($dato5);
+
+        $robot = Robot::create([
+            'nombre' => $dato1,
+            'descripcion' => $dato2,
+            'tipo' => $dato3,
+            'slug' => $dato4,
+            'imagen' =>$url,
+            'juego_id' => $dato6
+        ]);
 
         /*$robot = Robot::create($request->all());*/
 

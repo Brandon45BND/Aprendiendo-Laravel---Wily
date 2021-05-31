@@ -74,9 +74,10 @@
             <option value="9">Megaman 9</option>
             <option value="10">Megaman 10</option>
             <option value="11">Megaman 11</option>
+            <option value="12">Megaman And Bass</option>
         </select>
     </label>
-
+    
     <br>
     <button type="submit" class="btn btn-outline-primary">Guardar cambios</button>
 </div>

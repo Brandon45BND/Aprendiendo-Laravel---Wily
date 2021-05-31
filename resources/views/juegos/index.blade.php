@@ -12,7 +12,7 @@
     @foreach ($juegos as $juego)
         <!--<div class="card-group">-->
             <div class="card" style="width: 18rem;">
-                <img src="{{ url('/css/JuegoStock.png') }}" class="card-img-top" width="210" height="270" alt="Juego">
+                <img src="{{ url($juego->img_stock) }}" class="card-img-top" width="210" height="270" alt="Juego">
                 <div class="card-body">
                   <h5 class="card-title">{{$juego->nombre}} </h5>
                   <br>

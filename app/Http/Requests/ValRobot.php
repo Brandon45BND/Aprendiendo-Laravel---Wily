@@ -26,7 +26,8 @@ class ValRobot extends FormRequest
         return [
                 'nombre' => 'required|min:5',
                 'descripcion' => 'required|min:10',
-                'tipo' => 'required'
+                'tipo' => 'required',
+                'imagen' => 'required|image|max:2048'
         ];
     }
 
@@ -42,7 +43,8 @@ class ValRobot extends FormRequest
         return [
             'nombre.required' =>'Es obligatorio darle un nombre, Dr. Wily',
             'descripcion.required' =>'Es obligatorio darle una descripcion, Dr. Wily',
-            'tipo.required' =>'Defina el tipo, Dr. Wily'
+            'tipo.required' =>'Defina el tipo, Dr. Wily',
+            'imagen.required' =>'Es obligatorio seleccionar una imagen, Dr. Wily'
         ];
     }
 }

@@ -9,7 +9,7 @@ class Robot extends Model
 {
     use HasFactory;
 
-    /*protected $fillable = ['nombre', 'descripcion', 'tipo', 'juego_id'];*/
+    protected $fillable = ['nombre', 'descripcion', 'tipo', 'slug', 'imagen', 'juego_id'];
 
     /*protected $guarded = [];*/
 

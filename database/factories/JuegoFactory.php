@@ -23,6 +23,8 @@ class JuegoFactory extends Factory
     {
         return [
             'nombre' => $this->faker->name(),
+            'img_stock' => $this->faker->sentence(),
+            'img_page' => $this->faker->sentence(),
         ];
     }
 }

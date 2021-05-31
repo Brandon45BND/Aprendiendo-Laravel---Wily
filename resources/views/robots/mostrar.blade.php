@@ -8,7 +8,7 @@
 <div class="card mb-3" style="max-width: 540px;">
     <div class="row g-0">
         <div class="col-md-4">
-            <img src="{{ url('/css/RobotEx.jpg') }}" width="210" height="270" alt="Robot">
+            <img src="{{url($robot->imagen)}}" width="210" height="270" alt="Robot">
           </div>
           <div class="col-md-8">
               <div class="card-body">

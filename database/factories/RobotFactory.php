@@ -29,6 +29,7 @@ class RobotFactory extends Factory
             'slug'=> Str::slug($nombre, '-'),
             'descripcion' => $this->faker->paragraph(),
             'tipo' => $this->faker->sentence(),
+            'imagen' => $this->faker->sentence(),
             'juego_id' => Juego::factory()
         ];
     }

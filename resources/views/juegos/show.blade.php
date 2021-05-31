@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="card mb-3">
-    <img src="{{ url('/css/JuegoEx.png') }}" class="card-img-top" alt="Videojuego" height="400">
+    <img src="{{ url($juego->img_page) }}" class="card-img-top" alt="Videojuego" height="400">
     <div class="card-body">
       <h5 class="card-title">Videojuego: {{$juego->nombre}}</h5>
     </div>
@@ -21,7 +21,7 @@
     <!--<div class="card-group">-->
         <div class="card" style="width: 18rem;">
             <div class="card-body">
-              <img src="{{ url('/css/RobotEx.jpg') }}" class="card-img-top" width="210" height="270" alt="Robot">
+              <img src="{{url($robot->imagen)}}" class="card-img-top" width="210" height="270" alt="Robot">
               <h5 class="card-title">{{$robot->nombre}} </h5>
               <b><p class="card-text">Tipo:</b> {{$robot->tipo}}</p>
               <b><p class="card-text">Juego:</b> {{$robot->juego->nombre}}</p>

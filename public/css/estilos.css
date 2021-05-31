@@ -16,13 +16,13 @@ body{
 form{
 	padding-top:5px;
 	font-size: 17px;
-	margin-top: 30px;
+	margin-top: 15px;
     position: relative;
 }
 
 .login-form{
 	width: 380px;
-	height: 475px;
+	height: 570px;
 	margin: 10px;
 	background: #5484cc !important;
 	border-radius: 10px !important;

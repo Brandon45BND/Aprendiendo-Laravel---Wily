@@ -38,17 +38,19 @@ class RobotTest extends TestCase
         $juego = Juego::factory()->create();
         
         $robot = $this->actingAs($user)->post(route('robots.store'), [
-            'nombre' => 'Metal Man',
+            'nombre' => 'Elec Man',
             'descripcion' => 'Es un robot master que lanza cierras',
             'tipo' => 'Acero',
+            'imagen' => 'Elecman.png',
             'juego_id' => $juego->id
         ]);
 
         //4- Verificar que el robot existe en la base de datos
         $this->assertDatabaseHas('robots', [
-            'nombre' => 'Metal Man',
+            'nombre' => 'Elec Man',
             'descripcion' => 'Es un robot master que lanza cierras',
             'tipo' => 'Acero',
+            'imagen' => 'Elecman.png',
             'juego_id' => $juego->id
         ]);
         
@@ -70,7 +72,13 @@ class RobotTest extends TestCase
 
         $response->assertStatus(200);
 
-        $response->assertSeeInOrder(['lista']);
+        $resultados = $lista->map(function ($robots) {
+            return $robots->nombre;
+        });
+
+        $resultados = $resultados->toArray();
+
+        $response->assertSee($resultados);
 
     }
 
@@ -87,25 +95,56 @@ class RobotTest extends TestCase
 
         //3- Verificar que los datos del robot carguen en la consulta
 
-        $response->assertSee($robot->nombre, $robot->descripcion, $robot->tipo, $robot->juego->nombre);
-
+        $response->assertSee([
+            $robot->nombre,
+            $robot->descripcion,
+            $robot->tipo,
+            $robot->juego->nombre,
+            $robot->imagen]);
+        
     }
 
     public function test_acceder_a_la_ruta_edit()
     {
-        //1- Crear un robot para que podamos consultar sus datos
+        //1- Crear un usuario para utilizarlo en la autenticacion y acceder a la ruta edit
+
+        $user = User::factory()->create();
+
+        //2- Crear un robot para que podamos consultar sus datos
         
         $robot = Robot::factory()->create();
 
-        //2- Aceeder a la ruta de la consulta y editar de este robot y que cargue totalmente
-        $response = $this->get(route('robots.edit'));
+        //3- Aceeder a la ruta de la consulta y editar de este robot y que cargue totalmente
+        $response = $this->actingAs($user)->get(route('robots.edit', $robot->slug));
 
         $response->assertStatus(200);
     }
 
     public function test_editar_los_datos_de_un_robot()
     {
+        //4- Crear un usuario para acceder al metodo store
+        $user = User::factory()->create();
 
+        //4- Verificar que podemos guardar un juego
+
+        $juego = Juego::factory()->create();
+
+        $robot = Robot::factory()->create();
+        
+        $robot = $this->actingAs($user)->put(route('robots.update', $robot->slug), [
+            'nombre' => 'Fire Man',
+            'descripcion' => 'Es un robot master que ataca con llamas',
+            'tipo' => 'Fuego',
+            'juego_id' => $juego->id
+        ]);
+
+        //4- Verificar que el robot existe en la base de datos
+        $this->assertDatabaseHas('robots', [
+            'nombre' => 'Fire Man',
+            'descripcion' => 'Es un robot master que ataca con llamas',
+            'tipo' => 'Fuego',
+            'juego_id' => $juego->id
+        ]);
     }
 
     public function test_eliminar_robot()

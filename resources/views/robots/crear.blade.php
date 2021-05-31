@@ -5,7 +5,7 @@
 @section('content')
 <h1><center>Crea tu propio Robot Master</center></h1>
 
-<form action="{{route('robots.store')}}" method="POST">
+<form action="{{route('robots.store')}}" method="POST" enctype="multipart/form-data">
 
     @csrf
 
@@ -72,11 +72,21 @@
             <option value="9">Megaman 9</option>
             <option value="10">Megaman 10</option>
             <option value="11">Megaman 11</option>
+            <option value="12">Megaman And Bass</option>
         </select>
     </label>
 
+    <label>
+    Diseño del robot:
+    <input type="file" name="imagen" id="" accept="image/*">
+    </label>
 
-    <br>
+        @error('imagen')
+        <br>
+        <small>{{$message}}</small>
+        @enderror
+
+    
     <button type="submit" class="btn btn-outline-primary">Crear</button>
 </div>
 </div>

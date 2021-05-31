@@ -11,7 +11,7 @@
     @foreach ($robots as $robot)
     <!--<div class="card-group">-->
         <div class="card" style="width: 18rem;">
-            <img src="{{ url('/css/RobotEx.jpg') }}" class="card-img-top" width="210" height="270" alt="Robot">
+            <img src="{{url($robot->imagen)}}" class="card-img-top" width="210" height="270" alt="Robot">
             <div class="card-body">
               <h5 class="card-title">{{$robot->nombre}} </h5>
               <b><p class="card-text">Tipo:</b> {{$robot->tipo}}</p>

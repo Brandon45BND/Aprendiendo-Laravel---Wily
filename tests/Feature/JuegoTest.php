@@ -33,7 +33,13 @@ class JuegoTest extends TestCase
 
         $response->assertStatus(200);
 
-        $response->assertSeeInOrder(['lista']);
+        $resultados = $lista->map(function ($juegos) {
+            return $juegos->nombre;
+        });
+
+        $resultados = $resultados->toArray();
+
+        $response->assertSee($resultados);
 
     }
 

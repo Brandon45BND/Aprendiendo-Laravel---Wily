@@ -17,8 +17,9 @@ class Wily extends Migration
             $table->id();
             $table->string('nombre');
             $table->string('slug');
-            $table->string('descripcion');
+            $table->string('descripcion'); 
             $table->string('tipo');
+            $table->string('imagen');
 
             $table->unsignedBigInteger('juego_id');
             $table->foreign('juego_id')->references('id')->on('juegos')->onDelete('cascade')->onUpdate('cascade');
