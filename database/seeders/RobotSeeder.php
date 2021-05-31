@@ -16,12 +16,12 @@ class RobotSeeder extends Seeder
      */
     public function run()
     {
-        $game = Juego::factory()
+        /*$game = Juego::factory()
             ->count(11)
             ->has(Robot::factory(), "robots")
             ->create();
 
-        /*Robot::factory()
+        Robot::factory()
         ->count(1)
         ->for(Juego::factory(), "juego")   
         ->state(
@@ -31,7 +31,7 @@ class RobotSeeder extends Seeder
             ['tipo' => 'Acero'],
             ['juego_id' => '2'],
         )
-        ->create();
+        ->create();*/
 
         $game = new Juego();
 
@@ -260,6 +260,6 @@ class RobotSeeder extends Seeder
         $number12->imagen = "/storage/imagenes/Magicman.png";
         $number12->juego_id = "12";
 
-        $number12->save();*/
+        $number12->save();
     }
 }
